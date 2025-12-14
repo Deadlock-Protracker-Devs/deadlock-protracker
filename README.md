@@ -1,3 +1,3 @@
-## Django Template
+Project Outline and Description:
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/GB6Eki?referralCode=U5zXSw)
+https://docs.google.com/document/d/1oksx76JP8RAb4EHxrFCBLhbGqK16XP1FhybWazK4P6E/edit?usp=sharing
