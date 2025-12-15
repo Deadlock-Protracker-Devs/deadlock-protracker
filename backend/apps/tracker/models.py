@@ -56,7 +56,8 @@ class Match(models.Model):
     avg_rank = models.ForeignKey(Rank, on_delete=models.PROTECT)
 
 class PlayerPerformance(models.Model):
-    pk = models.CompositePrimaryKey("match_id", "account_id")
+    # composite primary key is not available in this version, will just have to use django assigned auto primary key 
+    # pk = models.CompositePrimaryKey("match_id", "account_id")
 
     account_id = models.ForeignKey("Account", on_delete=models.CASCADE)
     match_id = models.ForeignKey("Match", on_delete=models.CASCADE)

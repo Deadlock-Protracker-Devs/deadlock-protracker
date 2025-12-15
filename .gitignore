@@ -131,3 +131,8 @@ cython_debug/
 
 # LSP config files
 pyrightconfig.json
+
+# icons
+hero_icons/
+shop_item_icons/
+ability_icons/
