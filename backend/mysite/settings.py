@@ -41,6 +41,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    # third-party
+    "rest_framework",
+    
+    # local apps
     "apps.tracker.apps.TrackerConfig",
 ]
 
@@ -132,3 +137,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Public API URLs
+DEADLOCK_API_BASE_URL = os.getenv("DEADLOCK_API_BASE_URL", "https://api.deadlock-api.com")
+DEADLOCK_API_TIMEOUT_S = float(os.getenv("DEADLOCK_API_TIMEOUT_S", "15"))
+DEADLOCK_API_SLEEP_S = float(os.getenv("DEADLOCK_API_SLEEP_S", "0.1"))  # gentle rate-limiting

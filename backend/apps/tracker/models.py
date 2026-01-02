@@ -71,12 +71,17 @@ class Rank(models.Model):
 
 class Match(models.Model):
     def __str__(self):
-        return self.match_id 
+        return str(self.match_id)
     
     match_id = models.BigIntegerField(primary_key=True)
-    date = models.DateTimeField(auto_now_add=True)
+    date = models.DateTimeField()
     duration = models.DurationField()
-    avg_rank = models.ForeignKey(Rank, on_delete=models.PROTECT)
+    avg_rank = models.ForeignKey(
+        Rank, 
+        on_delete=models.PROTECT,
+        null=True,
+        blank=True,
+    )
 
 class PlayerPerformance(models.Model):
     # composite primary key is not available in this version, will just have to use django assigned auto primary key 
@@ -105,6 +110,11 @@ class PlayerPerformance(models.Model):
 
     team = models.SmallIntegerField()
     is_win = models.BooleanField()
+    
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(fields=["account_id", "match_id"], name="uniq_perf_account_match")
+        ]
 
 class PlayerAbility(models.Model):
     account_id = models.ForeignKey("Account", on_delete=models.CASCADE) 
