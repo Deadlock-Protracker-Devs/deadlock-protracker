@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     
     # third-party
     "rest_framework",
+    "drf_spectacular",
     
     # local apps
     "apps.tracker.apps.TrackerConfig",
@@ -142,3 +143,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 DEADLOCK_API_BASE_URL = os.getenv("DEADLOCK_API_BASE_URL", "https://api.deadlock-api.com")
 DEADLOCK_API_TIMEOUT_S = float(os.getenv("DEADLOCK_API_TIMEOUT_S", "15"))
 DEADLOCK_API_SLEEP_S = float(os.getenv("DEADLOCK_API_SLEEP_S", "0.1"))  # gentle rate-limiting
+
+# REST Framework Configuration
+REST_FRAMEWORK = {
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+}

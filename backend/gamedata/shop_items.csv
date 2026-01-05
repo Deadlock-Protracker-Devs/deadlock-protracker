@@ -1,0 +1,155 @@
+item_id	name	icon_key	imbue	type	cost
+7409189	Improved Spirit	upgrade_soaring_spirit	FALSE	spirit	1600
+26002154	Melee Charge	upgrade_melee_charge	FALSE	weapon	1600
+84321454	Quicksilver Reload	upgrade_quick_silver	TRUE	spirit	1600
+98582110	Backstabber	upgrade_weapon_backstabber	FALSE	weapon	1600
+112198670	Spirit Shielding	upgrade_spirit_bubble	FALSE	vitality	1600
+334300056	Stamina Mastery	upgrade_superior_stamina	FALSE	vitality	3200
+339443430	Frenzy	upgrade_fervor	FALSE	weapon	6400
+343572757	Spirit Burn	upgrade_spirit_burn	FALSE	spirit	6400
+365620721	Glass Cannon	upgrade_glass_cannon	FALSE	weapon	6400
+380806748	Compress Cooldown	upgrade_magic_tempo	TRUE	spirit	1600
+381961617	Active Reload	upgrade_active_reload	FALSE	weapon	1600
+393974127	Slowing Bullets	upgrade_slowing_bullets	FALSE	weapon	1600
+395867183	Mystic Shot	upgrade_crackshot	FALSE	weapon	1600
+395944548	Torment Pulse	upgrade_tech_damage_pulse	FALSE	spirit	3200
+465043967	Spirit Strike	upgrade_acolytes_glove	FALSE	spirit	800
+493591231	Lightning Scroll	upgrade_ultimate_burst	FALSE	spirit	6400
+499683006	Bullet Lifesteal	upgrade_vampire	FALSE	vitality	1600
+600033864	Majestic Leap	upgrade_rocket_booster	FALSE	vitality	3200
+619484391	Silence Wave	upgrade_targeted_silence	FALSE	spirit	3200
+630839635	Echo Shard	upgrade_ability_power_shard	TRUE	spirit	6400
+668299740	Rapid Rounds	upgrade_rapid_rounds	FALSE	weapon	800
+673001892	Armor Piercing Rounds	upgrade_aprounds	FALSE	weapon	6400
+677738769	Refresher	upgrade_ability_refresher	FALSE	spirit	6400
+690458959	Express Shot	upgrade_express_shot	FALSE	weapon	3200
+709540378	Cultist Sacrifice	upgrade_non_player_bonus_sacrifice	FALSE	weapon	3200
+710436191	Capacitor	upgrade_capacitor	FALSE	weapon	6400
+754480263	Mystic Expansion	upgrade_magic_reach	TRUE	spirit	800
+787198704	Rapid Recharge	upgrade_rapid_recharge	FALSE	spirit	3200
+800008313	Crushing Fists	upgrade_crushing_fists	FALSE	weapon	6400
+805079544	Weapon Shielding	upgrade_weapon_shielding	FALSE	vitality	1600
+811521119	Tesla Bullets	upgrade_chain_lightning	FALSE	weapon	3200
+857669956	Guardian Ward	upgrade_guardian_ward	FALSE	vitality	1600
+865846625	Leech	upgrade_damage_recycler	FALSE	vitality	6400
+865958998	Veil Walker	upgrade_veil_walker	FALSE	vitality	3200
+869090587	Mystic Reverb	upgrade_tech_bleed	TRUE	spirit	6400
+876563814	Spirit Lifesteal	upgrade_health_stealing_magic	FALSE	vitality	1600
+915014646	Transcendent Cooldown	upgrade_transcendent_cooldown	FALSE	spirit	6400
+968099481	Extra Spirit	upgrade_improved_spirit	FALSE	spirit	800
+989206714	Blood Tribute	upgrade_blood_tribute	FALSE	weapon	3200
+1009965641	Monster Rounds	upgrade_non_player_bonus	FALSE	weapon	800
+1047818222	Debuff Reducer	upgrade_debuff_reducer	FALSE	vitality	1600
+1055679805	Vampiric Burst	upgrade_surging_power	FALSE	vitality	6400
+1102081447	Mystic Slow	upgrade_magic_slow	FALSE	spirit	1600
+1113837674	Silencer	upgrade_proc_silence	FALSE	weapon	6400
+1144549437	Spirit Shredder Bullets	upgrade_tech_defense_shredders	FALSE	weapon	1600
+1150006784	Arcane Surge	upgrade_arcane_surge	FALSE	spirit	1600
+1152158042	Vortex Web	upgrade_aoe_root	FALSE	spirit	6400
+1193964439	Greater Expansion	upgrade_tech_range	FALSE	spirit	3200
+1219329868	Spirit Sap	upgrade_spirit_sap	FALSE	spirit	1600
+1235347618	Battle Vest	upgrade_regenerating_bullet_shield	FALSE	vitality	1600
+1250307611	Juggernaut	upgrade_juggernaut	FALSE	vitality	6400
+1252627263	Lifestrike	upgrade_boxing_glove	FALSE	vitality	3200
+1254091416	Knockdown	upgrade_target_stun	FALSE	spirit	3200
+1282141666	Siphon Bullets	upgrade_siphon_bullets	FALSE	vitality	6400
+1292979587	Surge of Power	upgrade_magic_storm	TRUE	spirit	3200
+1342610602	Close Quarters	upgrade_close_range	FALSE	weapon	800
+1371725689	Phantom Strike	upgrade_phantom_strike	FALSE	vitality	6400
+1378931225	Metal Skin	upgrade_metal_skin	FALSE	vitality	3200
+1396247347	Lucky Shot	upgrade_critshot	FALSE	weapon	6400
+1409190604	Fury Trance	upgrade_fury_trance	FALSE	vitality	3200
+1414025773	Counterspell	upgrade_counterspell	FALSE	vitality	3200
+1414319208	Berserker	upgrade_berserker	FALSE	weapon	3200
+1427630806	Healing Tempo	upgrade_healbuff	FALSE	vitality	6400
+1437614329	Melee Lifesteal	upgrade_lifestrike_gauntlets	FALSE	vitality	800
+1439347412	Mystic Regeneration	upgrade_mystic_regeneration	FALSE	spirit	800
+1497973293	Glass Cannon v2	upgrade_glass_cannon2	FALSE	weapon	6400
+1548066885	Extended Magazine	upgrade_clip_size	FALSE	weapon	800
+1644605047	Reactive Barrier	upgrade_vex_barrier	FALSE	vitality	1600
+1662311306	Divine Barrier	upgrade_divine_barrier	FALSE	vitality	6400
+1710079648	Healing Rite	upgrade_health_stimpak	FALSE	vitality	800
+1770441818	Weakening Headshot	upgrade_headshot_booster2	FALSE	weapon	1600
+1797283378	Infuser	upgrade_infuser	FALSE	vitality	6400
+1798666702	Shadow Weave	upgrade_cloaking_device_active	FALSE	weapon	6400
+1804594021	Rescue Beam	upgrade_rescue_beam	FALSE	vitality	3200
+1813726886	Slowing Hex	upgrade_containment	FALSE	spirit	1600
+1925087134	Suppressor	upgrade_suppressor	FALSE	spirit	1600
+1932939246	Alchemical Fire	upgrade_thermal_detonator	FALSE	weapon	3200
+1955841979	Spellbreaker	upgrade_spellbreaker	FALSE	vitality	6400
+1976391348	Cold Front	upgrade_cold_front	FALSE	spirit	1600
+1998374645	Mystic Burst	upgrade_magic_burst	FALSE	spirit	800
+2010028405	Headshot Booster	upgrade_headshot_booster	FALSE	weapon	800
+2037039379	Inhibitor	upgrade_inhibitor	FALSE	vitality	6400
+2059712766	Restorative Locket	upgrade_restorative_locket	FALSE	vitality	1600
+2061878743	Disarming Hex	upgrade_greater_withering_whip	FALSE	spirit	3200
+2064029594	Opening Rounds	upgrade_pristine_emblem	FALSE	weapon	1600
+2081037738	Mystic Vulnerability	upgrade_magic_vulnerability	FALSE	spirit	1600
+2095565695	Point Blank	upgrade_close_quarter_combat	FALSE	weapon	3200
+2108215830	Heroic Aura	upgrade_dps_aura	FALSE	weapon	3200
+2121044373	Tankbuster	upgrade_magic_shock	FALSE	spirit	3200
+2142980412	Focus Lens	upgrade_focus_lens	FALSE	spirit	6400
+2152872419	Sharpshooter	upgrade_sharpshooter	FALSE	weapon	3200
+2163598980	Spirit Resilience	upgrade_tech_purge	FALSE	vitality	3200
+2221211450	Spellslinger	upgrade_enchanted_holsters	FALSE	weapon	6400
+2226497419	Spiritual Overflow	upgrade_tech_overflow	FALSE	weapon	6400
+2356412290	Titanic Magazine	upgrade_titan_round	FALSE	weapon	1600
+2407033488	Intensifying Magazine	upgrade_intensifying_clip	FALSE	weapon	1600
+2407781327	Colossus	upgrade_colossus	FALSE	vitality	6400
+2417568017	Scourge	upgrade_discord	FALSE	spirit	6400
+2447176615	Enduring Speed	upgrade_cardio_calibrator	FALSE	vitality	1600
+2463960640	Escalating Resilience	upgrade_reinforcing_casings	FALSE	weapon	3200
+2480592370	Ricochet	upgrade_ricochet	FALSE	weapon	6400
+2481177645	Hunter's Aura	upgrade_bullet_armor_reduction_aura	FALSE	weapon	3200
+2519598785	Boundless Spirit	upgrade_boundless_spirit	FALSE	spirit	6400
+2533252781	Ethereal Shift	upgrade_self_bubble	FALSE	spirit	6400
+2566692615	Healing Booster	upgrade_healing_booster	FALSE	vitality	1600
+2603935618	Healbane	upgrade_healbane	FALSE	vitality	1600
+2617435668	Curse	upgrade_glitch	FALSE	spirit	6400
+2678489038	Hollow Point	upgrade_hollow_point_rounds	FALSE	weapon	3200
+2717651715	Superior Duration	upgrade_imbued_duration_extender	FALSE	spirit	3200
+2739107182	Burst Fire	upgrade_burst_fire	FALSE	weapon	3200
+2800629741	Magic Carpet	upgrade_magic_carpet	FALSE	spirit	6400
+2820116164	Diviner's Kevlar	upgrade_diviners_kevlar	FALSE	vitality	6400
+2829638276	Extra Regen	upgrade_endurance	FALSE	vitality	800
+2922054143	Rusted Barrel	upgrade_withering_whip	FALSE	spirit	800
+2947183272	Radiant Regeneration	upgrade_resonant_healing	FALSE	spirit	3200
+2951612397	Duration Extender	upgrade_arcane_extension	TRUE	spirit	1600
+2956256701	Healing Nova	upgrade_health_nova	FALSE	vitality	3200
+2971868509	Bullet Resist Shredder	upgrade_bullet_resist_shredder	FALSE	spirit	1600
+3005970438	Escalating Exposure	upgrade_escalating_exposure	FALSE	spirit	6400
+3028234315	Witchmail	upgrade_absorbing_armor	FALSE	vitality	6400
+3074274290	Trophy Collector	upgrade_trophy_collector	FALSE	vitality	3200
+3077079169	High-Velocity Rounds	upgrade_high_velocity_mag	FALSE	weapon	800
+3133167885	Silencer	upgrade_silencer	FALSE	weapon	6400
+3140772621	Bullet Resilience	upgrade_improved_bullet_armor	FALSE	vitality	3200
+3144988365	Decay	upgrade_rupture	FALSE	spirit	3200
+3190916303	Spirit Snatch	upgrade_spirit_snatch	FALSE	spirit	3200
+3261353684	Superior Cooldown	upgrade_cooldown_reduction	FALSE	spirit	3200
+3270001687	Warp Stone	upgrade_warp_stone	FALSE	vitality	3200
+3331811235	Long Range	upgrade_long_range	FALSE	weapon	1600
+3357231760	Unstoppable	upgrade_unstoppable	FALSE	vitality	6400
+3361075077	Return Fire	upgrade_return_fire	FALSE	vitality	1600
+3361811174	Cheat Death	upgrade_cheat_death	FALSE	vitality	6400
+3399065363	Sprint Boots	upgrade_sprint_booster	FALSE	vitality	800
+3403085434	Fleetfoot	upgrade_fleetfoot_boots	FALSE	weapon	1600
+3491236900	Plated Armor	upgrade_deflecting_armor	FALSE	vitality	6400
+3585132399	Fortitude	upgrade_chonky	FALSE	vitality	3200
+3633614685	Extra Health	upgrade_health	FALSE	vitality	800
+3647584222	Split Shot	upgrade_split_shot	FALSE	weapon	1600
+3696726732	Toxic Bullets	upgrade_toxic_bullets	FALSE	weapon	3200
+3731635960	Debuff Remover	upgrade_reduce_debuff_duration	FALSE	vitality	3200
+3776945997	Extra Charge	upgrade_extra_charge	FALSE	spirit	800
+3791587546	Weighted Shots	upgrade_weighted_shots	FALSE	weapon	3200
+3812615317	Arctic Blast	upgrade_arctic_blast	FALSE	spirit	6400
+3830846077	Majestic Leap - Disabled	upgrade_rocket_boots	FALSE	vitality	3200
+3862866912	Restorative Shot	upgrade_medic_bullets	FALSE	weapon	800
+3884003354	Crippling Headshot	upgrade_banshee_slugs	FALSE	weapon	6400
+3919289022	Mercurial Magnum	upgrade_ethereal_bullets	TRUE	spirit	6400
+3970837787	Enchanter's Emblem	upgrade_magic_shield	FALSE	vitality	1600
+3977876567	Kinetic Dash	upgrade_kinetic_sash	FALSE	weapon	1600
+4053935515	Headhunter	upgrade_headhunter	FALSE	weapon	3200
+4075861416	Spirit Rend	upgrade_spellslinger_headshots	FALSE	weapon	3200
+4104549924	Swift Striker	upgrade_blitz_bullets	FALSE	weapon	1600
+4139877411	Extra Stamina	upgrade_improved_stamina	FALSE	vitality	800
+4204808176	Rebuttal	upgrade_melee_rebuttal	FALSE	vitality	800

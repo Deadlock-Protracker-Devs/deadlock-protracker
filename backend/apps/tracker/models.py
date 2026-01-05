@@ -42,14 +42,31 @@ class ShopItem(models.Model):
         choices=ItemType.choices,
     )
     cost = models.IntegerField()
-    upgrades_into = models.ForeignKey(
+    upgrades_into = models.ManyToManyField(
         "self",
-        null=True,
+        symmetrical=False,  # A upgrade-to B does not imply B upgrade-from A
         blank=True,
-        on_delete=models.SET_NULL,
-        related_name="upgraded_from"
+        related_name="upgraded_from",
+        through="ShopItemUpgrade",
     )
     
+class ShopItemUpgrade(models.Model):
+    from_item = models.ForeignKey(
+        "ShopItem",
+        on_delete=models.CASCADE,
+        related_name="upgrade_edges_from",
+    )
+    to_item = models.ForeignKey(
+        "ShopItem",
+        on_delete=models.CASCADE,
+        related_name="upgrade_edges_to",
+    )
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(fields=["from_item", "to_item"], name="uniq_shopitem_upgrade_edge")
+        ]
+
 class Account(models.Model):
     # static account data, which will be maintained manually and is comprised of pro players
     def __str__(self):
@@ -57,6 +74,7 @@ class Account(models.Model):
 
     account_id = models.BigIntegerField(primary_key=True)
     username = models.CharField(max_length=50)
+    is_notable = models.BooleanField(default=False)
 
 class Rank(models.Model):
     # static rank data 
@@ -122,6 +140,21 @@ class PlayerAbility(models.Model):
     ability_id = models.ForeignKey("Ability", on_delete=models.CASCADE)
 
     game_time = models.IntegerField() # level time
+    
+    class Meta:
+        # protection against querying the same match twice and inserting duplicates
+        constraints = [
+            models.UniqueConstraint(
+                fields=["account_id", "match_id", "ability_id", "game_time"],
+                name="uniq_playerability_event",
+            )
+        ]
+        # we query events a lot, so I indexed these fields for faster lookups
+        indexes = [
+            models.Index(fields=["match_id"], name="idx_pability_match"),
+            models.Index(fields=["match_id", "account_id"], name="idx_pability_match_account"),
+            models.Index(fields=["match_id", "account_id", "game_time"], name="idx_pability_match_acc_t"),
+        ]
 
 class PlayerItem(models.Model):
     account_id = models.ForeignKey("Account", on_delete=models.CASCADE) 
@@ -132,4 +165,24 @@ class PlayerItem(models.Model):
     sold_time = models.IntegerField() # sell time
 
     is_upgrade = models.BooleanField(null=True)
-    imbued_ability = models.ForeignKey("Ability", on_delete=models.CASCADE)
+    imbued_ability = models.ForeignKey(
+        "Ability", 
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        )
+    
+    class Meta:
+        # protection against querying the same match twice and inserting duplicates
+        constraints = [
+            models.UniqueConstraint(
+                fields=["account_id", "match_id", "item_id", "game_time"],
+                name="uniq_playeritem_purchase",
+            )
+        ]
+        # we query events a lot, so I indexed these fields for faster lookups
+        indexes = [
+            models.Index(fields=["match_id"], name="idx_pitem_match"),
+            models.Index(fields=["match_id", "account_id"], name="idx_pitem_match_account"),
+            models.Index(fields=["match_id", "account_id", "game_time"], name="idx_pitem_match_acc_t"),
+        ]

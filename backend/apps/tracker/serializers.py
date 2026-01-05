@@ -22,7 +22,7 @@ class ShopItemSerializer(serializers.ModelSerializer):
 class PlayerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Account
-        fields = ["account_id", "username"]
+        fields = ["account_id", "username", "is_notable"]
 
 class MatchSerializer(serializers.ModelSerializer):
     avg_rank = serializers.StringRelatedField()

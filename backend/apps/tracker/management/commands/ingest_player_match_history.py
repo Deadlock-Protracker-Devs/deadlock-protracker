@@ -31,6 +31,17 @@ class Command(BaseCommand):
             action="store_true",
             help="If set, only_stored_history=false (pulls non-stored history too, if API supports it).",
         )
+        parser.add_argument(
+            "--since-days",
+            type=int,
+            default=None,
+            help="Only ingest matches from the last N days.",
+        )
+        parser.add_argument(
+            "--all-pros",
+            action="store_true",
+            help="Ingest for all notable/pro accounts in the database.",
+        )
 
     def handle(self, *args, **options):
         client = DeadlockApiClient()
@@ -39,6 +50,8 @@ class Command(BaseCommand):
 
         if options["all_accounts"]:
             account_ids = list(Account.objects.values_list("account_id", flat=True))
+        elif options["all_pros"]:
+            account_ids = list(Account.objects.filter(is_notable=True).values_list("account_id", flat=True))
         else:
             account_ids = options["account_id"]
 
@@ -51,6 +64,7 @@ class Command(BaseCommand):
             account_ids=account_ids,
             only_stored_history=only_stored,
             max_matches_per_player=options["max_matches"],
+            since_days=options["since_days"],
         )
 
         total_created = sum(r.created for r in results.values())
