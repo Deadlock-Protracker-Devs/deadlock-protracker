@@ -3,7 +3,6 @@ from apps.tracker.ingestion.client import DeadlockApiClient
 from apps.tracker.ingestion.jobs import ingest_match_events
 from apps.tracker.models import Match
 
-
 class Command(BaseCommand):
     help = "Ingest PlayerItem + PlayerAbility from match metadata for matches in tracker_match."
 

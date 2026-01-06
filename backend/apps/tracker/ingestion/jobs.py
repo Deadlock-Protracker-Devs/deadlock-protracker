@@ -1,6 +1,6 @@
 from __future__ import annotations
 from dataclasses import dataclass
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, time, timedelta, timezone
 from django.utils.timezone import now
 from typing import Any, Callable, Dict, Hashable, Iterable, List, Optional, Set, TypeVar
 from django.db import transaction
@@ -291,12 +291,24 @@ def ingest_match_events(
     """
     results: Dict[int, MatchEventsResult] = {}
 
+    # logs
+    total_matches = len(list(match_ids)) if not isinstance(match_ids, list) else len(match_ids)
+    start_time = time.time()
+    processed = 0
+    print(f"[INFO] Starting match event ingestion for {total_matches} matches")
+    
     # Pull static IDs once for fast classification
     ability_ids = set(Ability.objects.values_list("ability_id", flat=True))
     shop_ids = set(ShopItem.objects.values_list("item_id", flat=True))
 
     for match_id in match_ids:
-        payload = client.match_metadata(match_id)
+        try:
+            payload = client.match_metadata(match_id)
+        except Exception as e:
+            # Gracefully skip corrupted api responses
+            print(f"[WARN] match_metadata failed for match_id={match_id}: {e}")
+            continue
+
         events = _extract_player_item_events(payload)
         account_ids_in_match = {e.get("account_id") for e in events if e.get("account_id") is not None}
         _ensure_accounts_exist(account_ids_in_match)
@@ -388,6 +400,16 @@ def ingest_match_events(
             unknown_item_ids=len(unknown_ids),
             deduped_items=deduped_items,
             deduped_abilities=deduped_abilities,
+        )
+        
+        processed += 1
+        elapsed = time.time() - start_time
+        avg_per_match = elapsed / processed
+        remaining = total_matches - processed
+        eta_seconds = int(avg_per_match * remaining)
+        print(
+            f"[INFO] {processed}/{total_matches} matches processed. "
+            f"Time Remaining: {eta_seconds}s)"
         )
 
     return results

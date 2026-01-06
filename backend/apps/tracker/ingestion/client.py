@@ -28,28 +28,40 @@ class DeadlockApiClient:
     def _get(self, path: str, params: Optional[Dict[str, Any]] = None) -> Any:
         url = f"{self.base_url}{path}"
         last_err: Optional[Exception] = None
+        last_status: Optional[int] = None
+        last_body: Optional[str] = None
 
         for attempt in range(1, self.max_retries + 1):
             try:
                 resp = self.session.get(url, params=params, timeout=self.timeout_s)
+                last_status = resp.status_code
 
-                # Basic backoff on 429 / 5xx
+                # Store some body for debugging (truncate to keep logs sane)
+                try:
+                    last_body = (resp.text or "")[:500]
+                except Exception:
+                    last_body = None
+
+                # Backoff on 429/5xx
                 if resp.status_code in (429, 500, 502, 503, 504):
                     time.sleep(self.sleep_s * attempt)
                     continue
 
                 resp.raise_for_status()
-                time.sleep(self.sleep_s)  # gentle pacing
+
+                time.sleep(self.sleep_s)
                 return resp.json()
 
             except Exception as e:
                 last_err = e
                 time.sleep(self.sleep_s * attempt)
 
-        raise RuntimeError(f"GET {url} failed after {self.max_retries} retries: {last_err}")
+        raise RuntimeError(
+            f"GET {url} failed after {self.max_retries} retries. "
+            f"last_status={last_status} last_err={last_err} last_body={last_body!r}"
+        )
 
     # ---- Endpoints ----
-
     def esports_matches(self) -> Any:
         # Returns list of match objects or ids (depends on API); we parse defensively later.
         return self._get("/v1/esports/matches")
