@@ -14,7 +14,7 @@ from apps.tracker.models import (
     ShopItem,
 )
 from .client import DeadlockApiClient
-
+import time as time_mod
 
 def _epoch_to_dt_utc(epoch_s: int) -> datetime:
     """Convert epoch seconds -> aware UTC datetime."""
@@ -293,7 +293,7 @@ def ingest_match_events(
 
     # logs
     total_matches = len(list(match_ids)) if not isinstance(match_ids, list) else len(match_ids)
-    start_time = time.time()
+    start_time = time_mod.time()
     processed = 0
     print(f"[INFO] Starting match event ingestion for {total_matches} matches")
     
@@ -403,7 +403,7 @@ def ingest_match_events(
         )
         
         processed += 1
-        elapsed = time.time() - start_time
+        elapsed = time_mod.time() - start_time
         avg_per_match = elapsed / processed
         remaining = total_matches - processed
         eta_seconds = int(avg_per_match * remaining)
