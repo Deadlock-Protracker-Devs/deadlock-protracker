@@ -292,9 +292,11 @@ def ingest_match_events(
     results: Dict[int, MatchEventsResult] = {}
 
     # logs
-    total_matches = len(list(match_ids)) if not isinstance(match_ids, list) else len(match_ids)
-    start_time = time_mod.time()
+    match_ids = list(match_ids)
+    total_matches = len(match_ids)
+    start_ts = time_mod.time()
     processed = 0
+    failed = 0
     print(f"[INFO] Starting match event ingestion for {total_matches} matches")
     
     # Pull static IDs once for fast classification
@@ -306,7 +308,11 @@ def ingest_match_events(
             payload = client.match_metadata(match_id)
         except Exception as e:
             # Gracefully skip corrupted api responses
-            print(f"[WARN] match_metadata failed for match_id={match_id}: {e}")
+            failed += 1
+            print(
+                f"\n[WARN] Skipping match_id={match_id} "
+                f"(failed={failed}) error={e}"
+            )
             continue
 
         events = _extract_player_item_events(payload)
@@ -403,13 +409,15 @@ def ingest_match_events(
         )
         
         processed += 1
-        elapsed = time_mod.time() - start_time
+        elapsed = time_mod.time() - start_ts
         avg_per_match = elapsed / processed
         remaining = total_matches - processed
         eta_seconds = int(avg_per_match * remaining)
         print(
-            f"[INFO] {processed}/{total_matches} matches processed. "
-            f"Time Remaining: {eta_seconds}s)"
+            f"\r[PROGRESS] {processed}/{total_matches} matches processed. "
+            f"Time Remaining: {eta_seconds}s)",
+            end="",
+            flush=True,
         )
 
     return results
