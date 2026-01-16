@@ -25,7 +25,15 @@ from .serializers import (
     ShopItemSerializer,
     PlayerSerializer,
 )
+from django.shortcuts import render
+from mysite.vite import get_vite_assets
 
+# ============================================================
+# Frontend view
+# ============================================================
+def index(request):
+    vite_js, vite_css = get_vite_assets()
+    return render(request, "index.html", {"vite_js": vite_js, "vite_css": vite_css})
 
 # ============================================================
 # Matches

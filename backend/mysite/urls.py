@@ -14,23 +14,26 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
+from apps.tracker.views import index
 from drf_spectacular.views import (
     SpectacularAPIView,
     SpectacularSwaggerView,
 )
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    
+    path("admin/", admin.site.urls),
+
     # Tracker API
-    path('api/tracker/', include('apps.tracker.urls')),
-    
+    path("api/tracker/", include("apps.tracker.urls")),
+
     # API schema and docs
-    path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
-    path(
-        'api/docs/',
-        SpectacularSwaggerView.as_view(url_name='schema'),
-        name='swagger-ui',
-    ),
+    path("api/schema/", SpectacularAPIView.as_view(), name="schema"),
+    path("api/docs/", SpectacularSwaggerView.as_view(url_name="schema"), name="swagger-ui"),
+
+    # React entrypoint
+    path("", index, name="index"),
+
+    # React client-side routes: anything that's NOT /api or /admin
+    re_path(r"^(?!api/|admin/).*$", index),
 ]
